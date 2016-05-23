@@ -1,0 +1,19 @@
+{
+  "name": "productrepository",
+  "version": "1.0.0",
+  "description": "A system for creating new repos for New Atoms products synced with the Interface",
+  "main": "main.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/newatoms/productrepository.git"
+  },
+  "author": "Boris van Hoytema, New Atoms",
+  "bugs": {
+    "url": "https://github.com/newatoms/productrepository/issues"
+  },
+  "homepage": "https://github.com/newatoms/productrepository#readme",
+  "dependencies": {
+    "dotenv": "^2.0.0",
+    "firebase": "^3.0.2"
+  }
+}

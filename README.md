@@ -14,3 +14,7 @@ projects go in to the folder: `projects/`_project-slug_`/` and should have the f
 * a `pitch.md` for the pitch
 
 A good project slug is a codename for the project of 2 or 3 words, in lowercase with dashes and can be anything as long as it is rememberable.
+
+## Installing on CI
+
+You need a config file to deploy this repo, it needs to be formed as `config.example.js`, and can be called `config.json` if it is in the same folder. If on a headless CI machine you probably don't want to send a `json` file there, so you can encode it as BASE64 and store it as an environment variable called BASE64_CONFIG.
