@@ -2,14 +2,13 @@ var settings = {}
 
 require('dotenv').config({silent: true})
 
-var base64config
-if (process.env.BASE64_CONFIG) {
-  var buffer = new Buffer(process.env.BASE64_CONFIG, 'base64')
-  base64config = JSON.parse(buffer.toString())
-  console.log('Decoded BASE64 config from environment variable')
+if (!process.env.BASE64_CONFIG) {
+  return console.log('Error parsing config from BASE64, environment variable not present')
+  process.exit()
 }
-
-settings.config = base64config || require('./config.json')
+var buffer = new Buffer(process.env.BASE64_CONFIG, 'base64')
+settings.config = JSON.parse(buffer.toString())
+console.log('Decoded BASE64 config from environment variable')
 
 settings.filesLocation = process.env.FILES_LOCATION || settings.config.filesLocation || 'projects'
 settings.repoName = process.env.REPONAME || process.env.CIRCLE_PROJECT_REPONAME || settings.config.repoName || config.projectName || null
