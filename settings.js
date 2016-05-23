@@ -11,7 +11,7 @@ settings.config = JSON.parse(buffer.toString())
 console.log('Decoded BASE64 config from environment variable')
 
 settings.filesLocation = process.env.FILES_LOCATION || settings.config.filesLocation || 'projects'
-settings.repoName = process.env.REPONAME || process.env.CIRCLE_PROJECT_REPONAME || settings.config.repoName || config.projectName || null
+settings.repoName = process.env.REPONAME || process.env.CIRCLE_PROJECT_REPONAME || settings.config.repoName || settings.config.projectName || null
 settings.branchName = process.env.BRANCHNAME || process.env.CIRCLE_BRANCH || settings.config.branchName || null
 settings.databaseRoot = process.env.DATABASE_ROOT || settings.config.databaseRoot || 'productFiles'
 settings.databaseLocation = settings.databaseRoot
