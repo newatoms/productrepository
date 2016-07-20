@@ -8,6 +8,7 @@ projects go in to the folder: `projects/`_project-slug_`/` and should have the f
 
 * a `title.txt` for the post's title
 * a `post.md` for the post
+* a `premise.txt` for the premise of the blog post. It has a *character limit of 140*.
 * a `tweets.txt` for the tweets (one per line)
 * a `linkedin.txt` for the LinkedIn post if there is one and a folder with files if there are multiple
 * a `facebook.txt` for the Facebook post if there is one and a folder with files if there are multiple
