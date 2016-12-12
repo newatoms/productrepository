@@ -5,6 +5,8 @@ var settings = require('./settings.js')
 var Firebase = require('firebase')
 var fs = require('fs');
 
+var logLocation = (process.env.CIRCLE_ARTIFACTS || 'artifacts') + '/results.json'
+
 var firebase = Firebase.initializeApp(settings.config)
 var db = firebase.database()
 
@@ -14,16 +16,12 @@ filesToObject(settings.filesLocation, function (err, results) {
   results._updatedAt = new Date().getTime()
   results._updatedBy = 'productrepository'
   console.log('Set value to firebase ' + settings.databaseLocation)
-  if(process.env.CIRCLE_ARTIFACTS) {
-    fs.writeFile('results.json', results, function (err) {
-      if (err)
-        return console.error('Error writing output!')
-      console.log('Written output to results.json in the Circle Artifacts folder')
-    })
-  } else {
-    console.log('No artifacts stored')
-  }
-  db.ref(settings.databaseLocation).set(results, function () {  
+  fs.writeFile('results.json', logLocation, function (err) {
+    if (err)
+      return console.error('Error writing output!')
+    console.log('Written output to results.json in the Circle Artifacts folder')
+  })
+  db.ref(settings.databaseLocation).set(results, function () {
     console.log('All done!')
     process.exit()
   })
