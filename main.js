@@ -21,6 +21,8 @@ filesToObject(settings.filesLocation, function (err, results) {
           return console.error('Error writing output!')
         console.log('Written output to results.json in the Circle Artifacts folder')
       })
+    } else {
+      console.log('No artefacts stored')
     }
     console.log('All done!')
     process.exit()
